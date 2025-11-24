@@ -55,11 +55,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:MuhammedALDRUBI/temporary-files-handlers.git"
+            "url": "git@github.com:Pixel-Softwares-com/temporary-files-handlers.git"
         },
         {
             "type": "vcs",
-            "url": "git@github.com:MuhammedALDRUBI/exp-imp-management.git"
+            "url": "git@github.com:Pixel-Softwares-com/exp-imp-management.git"
         },
         {
             "type": "vcs",
@@ -103,15 +103,11 @@
         },
         {
             "type": "vcs",
-            "url": "git@github.com:MuhammedALDRUBI/pixel-dom-pdf.git"
+            "url": "git@github.com:Pixel-Softwares-com/pixel-dom-pdf.git"
         },
         {
             "type": "vcs",
-            "url": "git@github.com:mdr2025/pixel-app.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:mdr2025/pixel-macroable-extenders.git"
+            "url": "git@github.com:Pixel-Softwares-com/pixel-macroable-extenders.git"
         }
     ],
     "config": {
