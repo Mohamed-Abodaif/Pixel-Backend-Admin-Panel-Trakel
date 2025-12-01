@@ -22,9 +22,16 @@
   'revoked_token_grace_period' => '10 days',
   'server-app-client-credentials' => 
   array (
-    'id' => '7',
-    'secret' => 'M3ykeAmCkB564yVHxGadfDNvLZ8tqbriVS4oHMw7',
+     'id' => 2,
+    'secret' => 'q2JOSLYjxCriAy4r1thKN6XWZNeDLDoTijjCQr47'
   ),
+
+  //for erp
+  // 'server-app-client-credentials' => 
+  // array (
+  //   'id' => '7',
+  //   'secret' => 'M3ykeAmCkB564yVHxGadfDNvLZ8tqbriVS4oHMw7',
+  // ),
   'machine_client_credentials_client' => 
   array (
     'id' => 20,

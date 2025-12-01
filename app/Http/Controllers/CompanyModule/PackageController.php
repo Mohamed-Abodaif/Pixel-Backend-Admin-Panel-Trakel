@@ -18,35 +18,30 @@ class PackageController extends Controller
 
     public function index(Request $request): JsonResponse
     {
-        return $this->surroundWithTransaction(
-            fn(): JsonResponse => response()->json($this->packageService->getPackages()),
-            'Package Listing',
-            [
-                'user_id' => auth()->id(),
-                'request' => $request->all(),
-            ]
+        return $this->logOnFailureOnly(
+            callback : fn(): JsonResponse => response()->json($this->packageService->getPackages()),
+            operationName : 'Package Listing'
         );
     }
 
     public function list(): JsonResponse
     {
-        return $this->surroundWithTransaction(function () {
-            $total = $this->packageService->getCountPackages();
-            $data = $this->packageService->getListPackages();
-            return Response::successList($total, $data);
-        }, 'Package List', ['user_id' => auth()->id(), 'request' => request()->all()]);
+        return $this->logOnFailureOnly(
+                    callback :function () {
+                            $total = $this->packageService->getCountPackages();
+                            $data = $this->packageService->getListPackages();
+                            return Response::successList($total, $data);
+                    }, 
+                    operationName : 'Package List'
+                );
     }
 
     public function show(Package $package): JsonResponse
     {
-        return $this->surroundWithTransaction(
-            fn(): JsonResponse => Response::success($this->packageService->show($package)),
-            'Package Showing',
-            [
-                'user_id' => auth()->id(),
-                'request' => request()->all(),
-            ]
-        );
+        return $this->logOnFailureOnly(
+                    callback : fn(): JsonResponse => Response::success($this->packageService->show($package)),
+                    operationName : 'Package Showing' 
+                );
     }
 
 

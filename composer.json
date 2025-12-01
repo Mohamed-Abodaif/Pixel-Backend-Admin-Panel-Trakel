@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/tinker": "^2.5",
-        "mdr2025/pixel-app": "^1.0.50"
+        "pixel-softwares/pixel-app": "^1.0.50"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
