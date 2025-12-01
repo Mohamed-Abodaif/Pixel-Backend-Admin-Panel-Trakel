@@ -1,8 +1,9 @@
 <?php
 
+use PixelApp\Models\CompanyModule\PixelCompany\PixelCompany;
 use PixelApp\Models\CompanyModule\TenantCompany;
 use PixelApp\Models\SystemConfigurationModels\Branch;
-use PixelApp\Models\SystemConfigurationModels\CountryModule\Area;
+use PixelApp\Models\SystemConfigurationModels\CountryModule\GeographicalArea;
 use PixelApp\Models\SystemConfigurationModels\CountryModule\City;
 use PixelApp\Models\SystemConfigurationModels\CountryModule\Country;
 use PixelApp\Models\SystemConfigurationModels\Currency;
@@ -13,7 +14,7 @@ use PixelApp\Models\UsersModule\Signature;
 use PixelApp\Models\UsersModule\UserProfile;
 use PixelApp\Policies\AuthenticationPolicies\CompanyModulePolicies\CompanyModulePolicy;
 use PixelApp\Policies\IndependentGates\SuperAdminIndependentGates;
-use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\AreaPolicy;
+use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\GeographicalAreaPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\BranchPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\DepartmentPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\DropDownListPolicy;
@@ -35,14 +36,13 @@ return [
 
         /** DropDownList Policies */
         Department::class                 => DepartmentPolicy::class,
-        Area::class                       => AreaPolicy::class,
+        GeographicalArea::class           => GeographicalAreaPolicy::class,
         Branch::class                     => BranchPolicy::class,
         City::class                       => DropDownListPolicy::class,
         Currency::class                   => DropDownListPolicy::class,
        
         /** Authentication Policies */
-        TenantCompany::class                => CompanyModulePolicy::class,
-        UserProfile::class                  => UsersModulePolicy::class,
+        PixelCompany::class                => CompanyModulePolicy::class,
         PixelUser::class                    => UsersModulePolicy::class,
         UserProfile::class                  => UserProfilePolicy::class,
         Signature::class                    => SignaturePolicy::class

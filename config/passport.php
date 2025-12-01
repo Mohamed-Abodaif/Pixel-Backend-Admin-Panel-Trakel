@@ -1,13 +1,15 @@
 <?php return array (
+  'guard' => 'api',
   'private_key' => NULL,
   'public_key' => NULL,
+  'connection' => NULL,
   'client_uuids' => false,
   'personal_access_client' => 
   array (
     'id' => 19,
     'secret' => '20FYYYMplsXCIchZPS4BzXPX1965iwOmPEMtfTpk',
   ),
-  'storage' => 
+ 'storage' => 
   array (
     'database' => 
     array (

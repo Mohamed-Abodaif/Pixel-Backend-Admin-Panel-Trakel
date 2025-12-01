@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration
+class CreateLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ return new class() extends Migration
      */
     public function up()
     {
-        Schema::create('user_attachments', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->string("type");
-            $table->string("path")->nullable();
-            $table->string("path_original")->nullable();
-            $table->foreignId("user_id")->constrained("users")->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnDelete();
+            $table->string('action');
+            $table->json('changes')->nullable();
+            $table->morphs('model');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class() extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_attachments');
+        Schema::dropIfExists('logs');
     }
-};
+}

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use PixelApp\CustomLibs\Tenancy\Bootstrappers\FilesystemTenancyCustomBootstrapper;
-use App\Models\CompanyModule\TenantCompany;
+use App\CustomLibs\Tenancy\Bootstrappers\FilesystemTenancyCustomBootstrapper;
+use PixelApp\Models\CompanyModule\TenantCompany;
 use Stancl\Tenancy\Database\Models\Domain;
 
 
@@ -20,7 +20,10 @@ return [
      */
     'central_domains' => [
         '127.0.0.1',
-        'localhost', 
+        'localhost',
+        'stg.local',
+        'api.stg.local',
+
     ],
 
     /**
@@ -53,7 +56,7 @@ return [
          * Tenant database names are created like this:
          * prefix + tenant_id + suffix.
          */
-        'prefix' => 'erp_tenant_no_',
+        'prefix' => 'safetyhub_tenant_no_',
         'suffix' => '_database',
 
         /**
@@ -116,9 +119,9 @@ return [
         'root_override' => [
             // Disks whose roots should be overriden after storage_path() is suffixed.
             /** (UNCOMMENT THE LINES BELLOW IF YOU ONLY WANT TO GIVE EACH TENANT SEPARATED DISKS , BUT IN OUR CASE : EACH DISK WILL HAVE EVERY TENANT FILES THOSE SHOULD BE UPLOADED INTO THAT DISK) . */
-//             'local' => '%storage_path%/tenant_suffix_%tenant%/app/',
-//             'public' => '%storage_path%/tenant_suffix_%tenant%/app/public/',
-//             'front_separated' => '%storage_path%/tenant_suffix_%tenant%/app/public/',
+            //             'local' => '%storage_path%/tenant_suffix_%tenant%/app/',
+            //             'public' => '%storage_path%/tenant_suffix_%tenant%/app/public/',
+            //             'front_separated' => '%storage_path%/tenant_suffix_%tenant%/app/public/',
         ],
 
         /**
@@ -189,7 +192,7 @@ return [
      */
     'migration_parameters' => [
         '--force' => true, // This needs to be true to run migrations in production.
-        '--path' => [database_path('migrations/tenant')],
+        '--path' => config('database-paths',database_path('migrations/tenant/PixelStandartMigrations')),
         '--realpath' => true,
     ],
 
@@ -198,6 +201,6 @@ return [
      */
     'seeder_parameters' => [
         '--class' => 'TenantDatabaseSeeder', // root seeder class
-                 // '--force' => true, // This needs to be true to seed tenant databases in production
+        '--force' => true,
     ],
 ];

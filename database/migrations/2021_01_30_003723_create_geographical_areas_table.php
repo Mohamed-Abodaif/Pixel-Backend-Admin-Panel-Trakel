@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('areas', function (Blueprint $table) {
+        Schema::create('geographical_areas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('city_id')->constrained("cities")->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas');
+        Schema::dropIfExists('geographical_areas');
     }
 };

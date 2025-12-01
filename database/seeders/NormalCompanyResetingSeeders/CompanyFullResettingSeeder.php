@@ -1,14 +1,17 @@
 <?php
 
-namespace Database\Seeders;
- 
+namespace Database\Seeders\NormalCompanyResetingSeeders;
+
 use Illuminate\Database\Seeder;
-use PixelApp\CustomLibs\PixelCycleManagers\PixelAppBootingManagers\PixelAppBootingManager;
-use PixelApp\Database\Seeders\GeneralSeeders\BaseDropDownListModulesSeeder;
+use PixelApp\Database\Seeders\SystemConfigSeeders\DropdownListSeeders\BranchesSeeder;
 use PixelApp\Database\Seeders\SystemConfigSeeders\RolesAndPermissionsSeeders\PermissionsSeeder;
 use PixelApp\Database\Seeders\SystemConfigSeeders\RolesAndPermissionsSeeders\RolesSeeder;
 
-class DatabaseSeeder extends Seeder
+/**
+ * This seeder can be used when a normal app company want to execute a  full reset data
+ * NOT ON NEW PROJECT SETUP PROCESS
+ */
+class CompanyFullResettingSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -16,11 +19,11 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {  
+    {
         $this->call([
-            BaseDropDownListModulesSeeder::class,
             PermissionsSeeder::class,
-            RolesSeeder::class
+            RolesSeeder::class,
+            BranchesSeeder::class
         ]);
-    } 
+    }
 }

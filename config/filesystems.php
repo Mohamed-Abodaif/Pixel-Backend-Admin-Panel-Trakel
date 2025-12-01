@@ -34,9 +34,11 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app')
+            'root' => storage_path('app'),
+             'serve' => true,
+             'throw' => false,
+             'report' => false,
         ],
-
         'front_separated' => [
             /**
              * - Use it when frontend is separated from backend but both on the same server
@@ -71,15 +73,16 @@ return [
              * 3 - There is n differences between public and front_separated 's roots ... they will be used in the backend
              */
             'driver' => 'local',
+            /**
+             * @todo
+             * for later : think about using CustomFileHandler::getFileStoragePath , it fails in runtime becasue it uses a facade before registering it
+             */
             'root' => storage_path('app/public'),
-            'url' =>  rtrim(env('APP_URL') , "/") .  '/storage' ,
+            'url' =>  rtrim(env('BACKEND_URL') , "/") .  '/storage' ,
             'visibility' => 'public',
-//            'driver' => 'local',
-//            'root' => storage_path('app/public'),
-//            'url' =>  rtrim(env('APP_URL') , "/") .  '/storage' ,
-//            'visibility' => 'public',
-        ],
-
+            'throw' => false,
+            'report' => false,
+        ], 
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -89,6 +92,8 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            'throw' => false,
+            'report' => false,
         ],
         'gcs' => [
             'driver' => 'gcs',
@@ -103,7 +108,6 @@ return [
             'visibility_handler' => null, // optional: set to \League\Flysystem\GoogleCloudStorage\UniformBucketLevelAccessVisibility::class to enable uniform bucket level access
             'metadata' => ['cacheControl'=> 'public,max-age=86400'], // optional: default metadata
         ]
-
     ],
 
     /*

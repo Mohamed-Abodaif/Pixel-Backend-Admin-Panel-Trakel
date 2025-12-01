@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('company_id')->nullable();
             $table->string('name')->index();
             $table->string('name_shortcut')->index();
+            $table->string('abbreviation')->nullable()->after('name');
             $table->string('mobile' , 20)->index();
-            $table->string("email")->index();
             $table->string('domain')->nullable()->unique();
             $table->string('sector');
             $table->string('address')->nullable();
@@ -30,8 +30,6 @@ return new class extends Migration
             $table->enum('status', TenantCompany::REGISTRATIONS_STATUSES )->default(TenantCompany::REGISTRATIONS_DEFAULT_STATUS);
             $table->enum('account_type', TenantCompany::CompanyAccountAllowedTypes  )->default(TenantCompany::CompanyAccountDefaultType );
             $table->string('cr_no')->nullable()->unique();
-            $table->foreignId('parent_id')->nullable()->constrained('tenant_companies')->cascadeOnDelete();
-            $table->enum('type' , ['company' , 'branch'])->default('company');
             $table->string('employees_no');
             $table->string('branches_no')->nullable();
             $table->enum('package_status', ['Basic', 'Upgraded-no-Due', 'Upgraded-in-Due', 'Upgraded-over-Due'])->nullable();

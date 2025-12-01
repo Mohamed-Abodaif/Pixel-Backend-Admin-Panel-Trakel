@@ -35,4 +35,10 @@ class EventServiceProvider extends ServiceProvider
     {
 
     }
+
+    //to avoid laravel's default Registered Event behaviour
+    protected function configureEmailVerification()
+    {
+        // ...
+    }
 }

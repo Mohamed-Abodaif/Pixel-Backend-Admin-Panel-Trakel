@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\UsersModule\User;
+use App\Models\User;
 
 return [
 
@@ -16,8 +16,8 @@ return [
     */
 
     'defaults' =>  [
-        'guard' => 'api',
-        'passwords' => 'users',
+        'guard' => env('AUTH_GUARD', 'api'),
+        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
     /*
@@ -70,7 +70,7 @@ return [
 
         'users' => [
                         'driver' => 'eloquent',
-                        'model' => User::class,
+                        'model' =>  env('AUTH_MODEL',  User::class),
                    ],
         // 'users' => [
         //     'driver' => 'database',
@@ -96,7 +96,7 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
+             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE',  'password_resets'),
             'expire' => 60,
             'throttle' => 60,
         ],
@@ -113,6 +113,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+    'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
 ];

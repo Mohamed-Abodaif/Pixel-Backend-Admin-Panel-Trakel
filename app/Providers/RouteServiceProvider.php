@@ -41,14 +41,14 @@ class RouteServiceProvider extends ServiceProvider
             PixelRouteManager::loadAPIRoutes();   
             PixelRouteManager::loadWebRoutes();
             PixelRouteManager::loadPixelAppPackageRoutes();
- 
+            PixelRouteManager::loadTenantRoutes();
         }); 
     }
 
     /**
      * Configure the rate limiters for the application.
      *
-     * @return void
+     * @return Limit
      */
     protected function configureRateLimiting()
     {
