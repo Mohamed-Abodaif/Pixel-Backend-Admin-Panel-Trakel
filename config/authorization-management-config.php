@@ -1,7 +1,9 @@
 <?php
 
+use App\Policies\CompanyManagementPolicies\CompanyManagementPolicy;
 use PixelApp\Models\CompanyModule\PixelCompany\PixelCompany;
 use PixelApp\Models\CompanyModule\TenantCompany;
+use PixelApp\Models\SystemConfigurationModels\Area;
 use PixelApp\Models\SystemConfigurationModels\Branch;
 use PixelApp\Models\SystemConfigurationModels\CountryModule\GeographicalArea;
 use PixelApp\Models\SystemConfigurationModels\CountryModule\City;
@@ -17,7 +19,10 @@ use PixelApp\Policies\IndependentGates\SuperAdminIndependentGates;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\GeographicalAreaPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\BranchPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\DepartmentPolicy;
+use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\CityPolicy;
+use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\CurrencyPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\DropDownListPolicy;
+use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\MainAndSubAreaPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\RolesAndPermissionsPolicies\RolesAndPermissionsPolicies;
 use PixelApp\Policies\UserAccountPolicies\SignaturePolicy;
 use PixelApp\Policies\UserAccountPolicies\UserProfilePolicy;
@@ -37,12 +42,13 @@ return [
         /** DropDownList Policies */
         Department::class                 => DepartmentPolicy::class,
         GeographicalArea::class           => GeographicalAreaPolicy::class,
+        Area::class                       => MainAndSubAreaPolicy::class,
         Branch::class                     => BranchPolicy::class,
-        City::class                       => DropDownListPolicy::class,
-        Currency::class                   => DropDownListPolicy::class,
+        City::class                       => CityPolicy::class,
+        Currency::class                   => CurrencyPolicy::class,
        
         /** Authentication Policies */
-        PixelCompany::class                => CompanyModulePolicy::class,
+        PixelCompany::class                => CompanyManagementPolicy::class,
         PixelUser::class                    => UsersModulePolicy::class,
         UserProfile::class                  => UserProfilePolicy::class,
         Signature::class                    => SignaturePolicy::class
