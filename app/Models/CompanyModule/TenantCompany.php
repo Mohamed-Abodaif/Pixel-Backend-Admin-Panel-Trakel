@@ -70,9 +70,5 @@ class TenantCompany extends BaseTenantCompany
     //         'deleted_at'
     //     ];
     // } 
-    
-    public function scopeSignup($query) 
-    {
-        $query->where("status" , static::REGISTRATIONS_DEFAULT_STATUS);
-    }
+
   }

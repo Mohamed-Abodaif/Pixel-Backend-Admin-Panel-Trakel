@@ -3523,20 +3523,20 @@
         },
         {
             "name": "nette/utils",
-            "version": "v4.0.9",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "505a30ad386daa5211f08a318e47015b501cad30"
+                "reference": "fa1f0b8261ed150447979eb22e373b7b7ad5a8e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/505a30ad386daa5211f08a318e47015b501cad30",
-                "reference": "505a30ad386daa5211f08a318e47015b501cad30",
+                "url": "https://api.github.com/repos/nette/utils/zipball/fa1f0b8261ed150447979eb22e373b7b7ad5a8e0",
+                "reference": "fa1f0b8261ed150447979eb22e373b7b7ad5a8e0",
                 "shasum": ""
             },
             "require": {
-                "php": "8.0 - 8.5"
+                "php": "8.2 - 8.5"
             },
             "conflict": {
                 "nette/finder": "<3",
@@ -3559,7 +3559,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -3606,9 +3606,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v4.0.9"
+                "source": "https://github.com/nette/utils/tree/v4.1.0"
             },
-            "time": "2025-10-31T00:45:47+00:00"
+            "time": "2025-12-01T17:49:23+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -4803,16 +4803,16 @@
         },
         {
             "name": "pixel-softwares-com/pixel-app",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Pixel-Softwares-com/pixel-app.git",
-                "reference": "d27250214488f3179e2e0538d59b756ab02860de"
+                "reference": "33bde79aa08a3a960a2ddad6665d9d273f8be239"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pixel-Softwares-com/pixel-app/zipball/d27250214488f3179e2e0538d59b756ab02860de",
-                "reference": "d27250214488f3179e2e0538d59b756ab02860de",
+                "url": "https://api.github.com/repos/Pixel-Softwares-com/pixel-app/zipball/33bde79aa08a3a960a2ddad6665d9d273f8be239",
+                "reference": "33bde79aa08a3a960a2ddad6665d9d273f8be239",
                 "shasum": ""
             },
             "require": {
@@ -4822,20 +4822,20 @@
                 "laravel/passport": "^12.0",
                 "php": "^8.2.0",
                 "phpmailer/phpmailer": "^6.9",
-                "pixel-softwares-com/authorization-management": "^2.0.0",
-                "pixel-softwares-com/crud-services": "^2.0.0",
-                "pixel-softwares-com/custom-file-system": "^2.0.0",
-                "pixel-softwares-com/custom-generators": "^2.0.0",
-                "pixel-softwares-com/data-resource-instructors": "^2.0.0",
-                "pixel-softwares-com/exp-imp-management": "^2.0.0",
-                "pixel-softwares-com/file-info-data-manager": "^2.0.0",
-                "pixel-softwares-com/morphic-abstract-eloquent": "^2.0.0",
+                "pixel-softwares-com/authorization-management": "^2.0",
+                "pixel-softwares-com/crud-services": "^2.0",
+                "pixel-softwares-com/custom-file-system": "^2.0",
+                "pixel-softwares-com/custom-generators": "^2.0",
+                "pixel-softwares-com/data-resource-instructors": "^2.0",
+                "pixel-softwares-com/exp-imp-management": "^2.0",
+                "pixel-softwares-com/file-info-data-manager": "^2.0",
+                "pixel-softwares-com/morphic-abstract-eloquent": "^2.0",
                 "pixel-softwares-com/pixel-dom-pdf": "^2.0",
-                "pixel-softwares-com/pixel-macroable-extenders": "^2.0.0",
-                "pixel-softwares-com/runtime-caching": "^2.0.0",
-                "pixel-softwares-com/statistics": "^2.0.0",
-                "pixel-softwares-com/temporary-files-handlers": "^2.0.0",
-                "pixel-softwares-com/validator-lib": "^2.0.0",
+                "pixel-softwares-com/pixel-macroable-extenders": "^2.0",
+                "pixel-softwares-com/runtime-caching": "^2.0",
+                "pixel-softwares-com/statistics": "^2.0",
+                "pixel-softwares-com/temporary-files-handlers": "^2.0",
+                "pixel-softwares-com/validator-lib": "^2.0",
                 "sendgrid/sendgrid": "^8.0",
                 "spatie/laravel-permission": "^6.0",
                 "spatie/laravel-query-builder": "^6.0",
@@ -4883,10 +4883,10 @@
             ],
             "description": "PixelApp package",
             "support": {
-                "source": "https://github.com/Pixel-Softwares-com/pixel-app/tree/2.0.6",
+                "source": "https://github.com/Pixel-Softwares-com/pixel-app/tree/2.0.7",
                 "issues": "https://github.com/Pixel-Softwares-com/pixel-app/issues"
             },
-            "time": "2025-11-30T11:52:29+00:00"
+            "time": "2025-12-02T12:53:00+00:00"
         },
         {
             "name": "pixel-softwares-com/pixel-dom-pdf",

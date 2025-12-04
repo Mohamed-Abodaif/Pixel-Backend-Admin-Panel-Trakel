@@ -7,7 +7,13 @@ use Spatie\QueryBuilder\AllowedFilter;
 
 class TenantCompanyConfig
 {
-     public static function getSignupListFilters(): array
+
+    public static function getIndexingFilters() : array
+    {
+        return["name" , "domain" , "company_id"] ;
+    }
+
+    public static function getSignupListFilters(): array
     {
         return [
             AllowedFilter::callback('name', function (Builder $query, $value) {

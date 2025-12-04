@@ -35,7 +35,7 @@ class CompanyManagementService
     {
          return [
             'list' => $this->initTenantCompanyManagementRepostiry()
-                           ->index( ["name" , "domain" , "company_id"] ),
+                           ->index( TenantCompanyConfig::getIndexingFilters()),
 
             'permissions' => [],
             'statistics' => [],
