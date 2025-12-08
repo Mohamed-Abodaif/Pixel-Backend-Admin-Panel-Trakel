@@ -7,10 +7,9 @@ use Spatie\QueryBuilder\AllowedFilter;
 
 class TenantCompanyConfig
 {
-
     public static function getIndexingFilters() : array
     {
-        return["name" , "domain" , "company_id"] ;
+        return["name" , "sector" , "domain" , "status" , "company_id"] ;
     }
 
     public static function getSignupListFilters(): array
