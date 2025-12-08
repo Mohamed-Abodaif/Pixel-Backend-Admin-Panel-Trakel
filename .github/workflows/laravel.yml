@@ -2,7 +2,7 @@ name: laravel
 
 on:
   push:
-    branches: [ staging ]
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
