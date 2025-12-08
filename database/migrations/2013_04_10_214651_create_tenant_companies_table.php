@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('company_id')->nullable();
             $table->string('name')->index();
             $table->string('name_shortcut')->index();
-            $table->string('abbreviation')->nullable()->after('name');
+            $table->string('abbreviation')->nullable();
             $table->string('mobile' , 20)->index();
             $table->string('domain')->nullable()->unique();
             $table->string('sector');
