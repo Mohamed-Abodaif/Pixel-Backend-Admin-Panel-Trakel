@@ -1,0 +1,40 @@
+name: laravel
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: 80.208.229.46
+        username: erp_stg
+        password: NtddJCwtj1EfeyS
+        protocol: ftp
+        server-dir: /public_html/backendAdmin/
+        local-dir: ./
+        exclude: |
+          .*/**
+          **/.git*
+          **/public/storage*
+
+    - name: ssh actions (update packages)
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: 80.208.229.46
+        username: erp_stg
+        password: NtddJCwtj1EfeyS
+        script: |
+          cd public_html/backendAdmin/
+          rm -f composer.lock
+          composer clear-cache
+          composer install --ignore-platform-reqs --no-interaction
+          composer dump-autoload -o --ignore-platform-reqs
+          rm -f local_ssh_script*
