@@ -20,9 +20,8 @@ return [
      */
     'central_domains' => [
         '127.0.0.1',
+        'adminapi.stg.companies-management.com',
         'localhost',
-        'stg.local',
-        'api.stg.local',
 
     ],
 

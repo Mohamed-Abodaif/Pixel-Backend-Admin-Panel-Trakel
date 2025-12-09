@@ -3,9 +3,6 @@
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use PixelApp\Helpers\PixelGlobalHelpers;
-use PixelApp\Models\CompanyModule\CompanyDefaultAdmin;
-use PixelApp\Services\UserEncapsulatedFunc\RegistrableUserHandlers\RegistrableDefaultSuperAdminApprover;
-use PixelApp\Services\UserEncapsulatedFunc\RegistrableUserHandlers\RegistrableUserFactory;
 
 PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule'); 
   
