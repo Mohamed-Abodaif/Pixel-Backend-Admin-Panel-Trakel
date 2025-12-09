@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SafetyHubAdminPanel\WorkSector\CompanyManagementModule\PackageController;
+use App\Http\Controllers\CompanyModule\PackageController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('packages')
