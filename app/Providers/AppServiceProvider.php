@@ -18,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerTenantCompanyRepostiryInterface();
+
+        $this->registerTenantCompanyPackageRepositryInterface();
     }
 
     /**
