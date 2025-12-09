@@ -11,7 +11,9 @@ PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule');
   
 Route::get("test" , function()
 {
-
+    return response()->json([
+        "test" => "Hello"
+    ]);
     dd(Hash::make('123456789'));
     // $data = CompanyDefaultAdmin::first();
     // $registrableAdmin = (new RegistrableUserFactory($data->toArray()))->makeUser();
