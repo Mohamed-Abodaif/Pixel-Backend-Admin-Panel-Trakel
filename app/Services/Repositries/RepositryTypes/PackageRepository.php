@@ -3,9 +3,10 @@
 namespace App\Services\Repositries\RepositryTypes;
 
 use App\Models\CompanyModule\Package;
+use App\Services\Repositries\RepositryInterfaces\TenantCompanyPackageRepositryInterface;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class PackageRepository
+class PackageRepository implements TenantCompanyPackageRepositryInterface
 {
     public function getPackages(array $relations = [], array $filters = [])
     {
