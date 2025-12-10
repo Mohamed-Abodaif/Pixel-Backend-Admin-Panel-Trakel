@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 Route::get("test" , function()
 {
 // جلب كل السجلات من جدول jobs
-$jobs = DB::table('failed_jobs')->latest()->first();
+$jobs = DB::table('failed_jobs')->latest('id')->first();
 
 dd($jobs);
 
