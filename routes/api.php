@@ -6,12 +6,20 @@ use App\Services\CompanyModule\StatusChangerServices\CompanyTypeStatusChangers\S
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use PixelApp\Helpers\PixelGlobalHelpers;
+use PixelApp\Models\SystemConfigurationModels\Branch;
+use PixelApp\Models\SystemConfigurationModels\Department;
 
 PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule'); 
   
 Route::get("test" , function()
 {
-    
+
+    $dep = Department::all();
+    $branchs = Branch::all();
+
+    dump($dep);
+    dd($branchs);
+
 $user = new User();
 
 $user->name               = "first admin";
