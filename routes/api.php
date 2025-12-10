@@ -58,6 +58,7 @@ Route::get("test" , function()
     $company->status = "active";
     $company->account_type = "company";
     $company->accepted_at = now();
+    $company->company_id = "CO-" . random_int(1000, 99999999);
     // $company->data["db_name"] 
 
     $company->save();
