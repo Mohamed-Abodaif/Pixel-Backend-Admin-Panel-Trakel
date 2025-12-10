@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Http;
 Route::get("test" , function()
 {
 
-    $response =  Http::baseUrl("api.stg.companies-management.com")
-    ->get("api/test");
+    
+    // $response =  Http::baseUrl("api.stg.companies-management.com")
+    // ->get("api/test");
 
-    return response()->json([
-        "data" => $response->json()
-    ]);
+    // return response()->json([
+    //     "data" => $response->json()
+    // ]);
 
 
 // جلب كل السجلات من جدول jobs
@@ -53,9 +54,10 @@ Route::get("test" , function()
 
     $company = TenantCompany::first();
     
-    $company->data = [];
+    $company->data["db_name"] = "erp_tenant_no_1_database";
 
     $company->save();
+    
  
 //     (new SignUpAccountApprovingService(1))->approve();
 
