@@ -52,16 +52,16 @@ Route::get("test" , function()
 
 // $user->save();
 
-    $company = TenantCompany::first();
+    $company = TenantCompany::latest('id');
     
-    $company->db_name= "erp_tenant_no_1_database";
-    $company->status = "active";
-    $company->account_type = "company";
-    $company->accepted_at = now();
-    // $company->company_id = "CO-" . random_int(1000, 99999999);
-    // $company->data["db_name"] 
+    // $company->db_name= "erp_tenant_no_1_database";
+    // $company->status = "active";
+    // $company->account_type = "company";
+    // $company->accepted_at = now();
+    // // $company->company_id = "CO-" . random_int(1000, 99999999);
+    // // $company->data["db_name"] 
 
-    $company->save();
+    // $company->save();
 
  
 //     (new SignUpAccountApprovingService(1))->approve();
