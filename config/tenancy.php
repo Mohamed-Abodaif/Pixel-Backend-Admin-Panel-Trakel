@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\CustomLibs\Tenancy\Bootstrappers\FilesystemTenancyCustomBootstrapper;
+use PixelApp\CustomLibs\Tenancy\Bootstrappers\FilesystemTenancyCustomBootstrapper;
 use PixelApp\Models\CompanyModule\TenantCompany;
 use Stancl\Tenancy\Database\Models\Domain;
 

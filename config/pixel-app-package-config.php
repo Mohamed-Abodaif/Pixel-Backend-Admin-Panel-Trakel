@@ -5,7 +5,7 @@ use App\Models\UsersModule\User;
 
  return [
           'pixel-app-type' => 'admin-panel-app',
-          "tenant-app-root-api" => "http://127.0.0.1:8000",
+          "tenant-app-root-api" => env( 'TENANT_ROOT_API' ,  "http://127.0.0.1:8000"),
           'pixel-app-package-route-registrars' => 
           [
             'company-auth' => 'PixelApp\\Routes\\RouteRegistrarTypes\\AuthenticationRoutesRegistrars\\CompanyAuthenticationAPIRoutesRegistrar',
