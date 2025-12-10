@@ -16,8 +16,13 @@ use Illuminate\Support\Facades\Http;
 
 Route::get("test" , function()
 {
-    return Http::baseUrl("api.stg.companies-management.com")
+
+    $response =  Http::baseUrl("api.stg.companies-management.com")
     ->get("api/test");
+
+    return response()->json([
+        "data" => $response->json()
+    ]);
 
 
 // جلب كل السجلات من جدول jobs
