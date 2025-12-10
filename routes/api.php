@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\DB;
 Route::get("test" , function()
 {
 // جلب كل السجلات من جدول jobs
-$jobs = DB::table('failed_jobs')->latest('id')->first();
+// $jobs = DB::table('failed_jobs')->latest('id')->first();
 
-dd($jobs);
+// dd($jobs);
 
 
 // $user = new User();
@@ -41,12 +41,15 @@ dd($jobs);
 
 // $user->save();
 
-//     $company = TenantCompany::first();
+    $company = TenantCompany::first();
     
+    $company->data = [];
 
+    $company->save();
+ 
 //     (new SignUpAccountApprovingService(1))->approve();
 
-//     return $company;
+    return $company;
 
     return response()->json([
         "test" => "Hello"
