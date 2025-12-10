@@ -54,10 +54,10 @@ Route::get("test" , function()
 
     $company = TenantCompany::first();
     
-    $company->data["db_name"] = "erp_tenant_no_1_database";
+    // $company->data["db_name"] = "erp_tenant_no_1_database";
 
     $company->save();
-    
+
  
 //     (new SignUpAccountApprovingService(1))->approve();
 
