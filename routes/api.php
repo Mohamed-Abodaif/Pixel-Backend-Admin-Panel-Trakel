@@ -12,9 +12,14 @@ use PixelApp\Models\SystemConfigurationModels\Department;
 PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule'); 
  
 use Illuminate\Support\Facades\DB;
- 
+use Illuminate\Support\Facades\Http;
+
 Route::get("test" , function()
 {
+    return Http::baseUrl("api.stg.companies-management.com")
+    ->get("api/test")->json();
+
+
 // جلب كل السجلات من جدول jobs
 // $jobs = DB::table('failed_jobs')->latest('id')->first();
 
