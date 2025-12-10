@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\CompanyModule\TenantCompany;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use PixelApp\Helpers\PixelGlobalHelpers;
@@ -8,6 +9,10 @@ PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule');
   
 Route::get("test" , function()
 {
+    
+    $company = TenantCompany::first();
+    return $company;
+
     return response()->json([
         "test" => "Hello"
     ]);
