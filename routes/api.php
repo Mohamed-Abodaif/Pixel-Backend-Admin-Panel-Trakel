@@ -52,8 +52,12 @@ Route::get("test" , function()
 
 // $user->save();
 
-    $company = TenantCompany::latest('id');
-    
+    $company = TenantCompany::latest('id')->first();
+
+    $company->cancelApproving();
+    $company->save();
+
+    dump($company->fresh());
     // $company->db_name= "erp_tenant_no_1_database";
     // $company->status = "active";
     // $company->account_type = "company";
