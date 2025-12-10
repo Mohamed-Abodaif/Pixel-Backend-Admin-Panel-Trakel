@@ -54,7 +54,11 @@ Route::get("test" , function()
 
     $company = TenantCompany::first();
     
-    // $company->data["db_name"] = "erp_tenant_no_1_database";
+    $company->db_name= "erp_tenant_no_1_database";
+    $company->status = "active";
+    $company->account_type = "company";
+    $company->accepted_at = now();
+    // $company->data["db_name"] 
 
     $company->save();
 
