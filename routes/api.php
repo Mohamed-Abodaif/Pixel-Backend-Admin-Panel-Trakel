@@ -14,11 +14,6 @@ PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule');
 Route::get("test" , function()
 {
 
-    $dep = Department::all();
-    $branchs = Branch::all();
-
-    dump($dep);
-    dd($branchs);
 
 $user = new User();
 
