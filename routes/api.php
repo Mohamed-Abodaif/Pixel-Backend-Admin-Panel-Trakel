@@ -10,11 +10,11 @@ use PixelApp\Models\SystemConfigurationModels\Branch;
 use PixelApp\Models\SystemConfigurationModels\Department;
 
 PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule'); 
-  
+ 
+use Illuminate\Support\Facades\DB;
+ 
 Route::get("test" , function()
 {
-use Illuminate\Support\Facades\DB;
-
 // جلب كل السجلات من جدول jobs
 $jobs = DB::table('jobs')->get();
 
