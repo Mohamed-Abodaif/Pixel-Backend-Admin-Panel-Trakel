@@ -28,7 +28,7 @@ Route::get("test" , function()
  $response = Http::baseUrl("api.stg.companies-management.com")
     ->get("api/test");
 
-    return response()->json(["data" => $response->json() ] );
+    dd(["data" => $response->json() ] );
     
     // $response =  Http::baseUrl("api.stg.companies-management.com")
     // ->get("api/test");
