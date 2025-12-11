@@ -13,6 +13,9 @@ PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule');
  
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use PixelApp\CustomLibs\PixelCycleManagers\PixelAppsConnectionManagement\PixelAppClients\PixelTenantAppCentralDomainClient;
+use PixelApp\CustomLibs\PixelCycleManagers\PixelAppsConnectionManagement\PixelAppRouteIdentifiers\PixelAppGetRouteIdentifier;
+use PixelApp\CustomLibs\PixelCycleManagers\PixelAppsConnectionManagement\PixelAppsConnectionManager;
 
 Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) { 
     $route = $request->route(); 
@@ -25,6 +28,12 @@ Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) {
 
 Route::get("test" , function()
 {
+
+    $routeId  = (new PixelAppGetRouteIdentifier("api/test"));
+    dd(
+        PixelAppsConnectionManager::Singleton()->connectOn(PixelTenantAppCentralDomainClient::getClientName())
+    ->requestOnRoute($routeId));
+
  $response = Http::baseUrl("https://api.stg.companies-management.com")
     ->get("api/test");
 
