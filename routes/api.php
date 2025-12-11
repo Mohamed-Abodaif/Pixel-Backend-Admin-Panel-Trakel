@@ -14,6 +14,15 @@ PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule');
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
+Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) { 
+    $route = $request->route(); 
+
+    return response()->json([
+        'uri' => $route->uri(),
+        'middlewares' => $route->gatherMiddleware(),
+    ]);
+});
+
 Route::get("test" , function()
 {
 
