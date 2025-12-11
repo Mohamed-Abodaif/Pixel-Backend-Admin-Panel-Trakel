@@ -1598,16 +1598,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.41.1",
+            "version": "v12.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3e229b05935fd0300c632fb1f718c73046d664fc"
+                "reference": "509b33095564c5165366d81bbaa0afaac28abe75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3e229b05935fd0300c632fb1f718c73046d664fc",
-                "reference": "3e229b05935fd0300c632fb1f718c73046d664fc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/509b33095564c5165366d81bbaa0afaac28abe75",
+                "reference": "509b33095564c5165366d81bbaa0afaac28abe75",
                 "shasum": ""
             },
             "require": {
@@ -1695,6 +1695,7 @@
                 "illuminate/process": "self.version",
                 "illuminate/queue": "self.version",
                 "illuminate/redis": "self.version",
+                "illuminate/reflection": "self.version",
                 "illuminate/routing": "self.version",
                 "illuminate/session": "self.version",
                 "illuminate/support": "self.version",
@@ -1719,7 +1720,7 @@
                 "league/flysystem-sftp-v3": "^3.25.1",
                 "mockery/mockery": "^1.6.10",
                 "opis/json-schema": "^2.4.1",
-                "orchestra/testbench-core": "^10.8.0",
+                "orchestra/testbench-core": "^10.8.1",
                 "pda/pheanstalk": "^5.0.6|^7.0.0",
                 "php-http/discovery": "^1.15",
                 "phpstan/phpstan": "^2.0",
@@ -1781,6 +1782,7 @@
                     "src/Illuminate/Filesystem/functions.php",
                     "src/Illuminate/Foundation/helpers.php",
                     "src/Illuminate/Log/functions.php",
+                    "src/Illuminate/Reflection/helpers.php",
                     "src/Illuminate/Support/functions.php",
                     "src/Illuminate/Support/helpers.php"
                 ],
@@ -1789,7 +1791,8 @@
                     "Illuminate\\Support\\": [
                         "src/Illuminate/Macroable/",
                         "src/Illuminate/Collections/",
-                        "src/Illuminate/Conditionable/"
+                        "src/Illuminate/Conditionable/",
+                        "src/Illuminate/Reflection/"
                     ]
                 }
             },
@@ -1813,7 +1816,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-12-03T01:02:13+00:00"
+            "time": "2025-12-09T15:51:23+00:00"
         },
         {
             "name": "laravel/passport",
@@ -4466,16 +4469,16 @@
         },
         {
             "name": "pixel-softwares-com/crud-services",
-            "version": "2.0.8",
+            "version": "2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pixel-Softwares-com/crud-services.git",
-                "reference": "40e0c60555b39c7080e57510382998e87b6bd54c"
+                "reference": "d57e8b061480b5b5b032d23700bc7448fed3d0d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pixel-Softwares-com/crud-services/zipball/40e0c60555b39c7080e57510382998e87b6bd54c",
-                "reference": "40e0c60555b39c7080e57510382998e87b6bd54c",
+                "url": "https://api.github.com/repos/Pixel-Softwares-com/crud-services/zipball/d57e8b061480b5b5b032d23700bc7448fed3d0d4",
+                "reference": "d57e8b061480b5b5b032d23700bc7448fed3d0d4",
                 "shasum": ""
             },
             "require": {
@@ -4511,10 +4514,10 @@
             ],
             "description": "CRUDServices Package",
             "support": {
-                "source": "https://github.com/Pixel-Softwares-com/crud-services/tree/2.0.8",
+                "source": "https://github.com/Pixel-Softwares-com/crud-services/tree/2.0.10",
                 "issues": "https://github.com/Pixel-Softwares-com/crud-services/issues"
             },
-            "time": "2025-11-30T11:38:51+00:00"
+            "time": "2025-12-10T12:40:18+00:00"
         },
         {
             "name": "pixel-softwares-com/custom-file-system",
@@ -4803,16 +4806,16 @@
         },
         {
             "name": "pixel-softwares-com/pixel-app",
-            "version": "2.0.15",
+            "version": "2.0.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Pixel-Softwares-com/pixel-app.git",
-                "reference": "ee6ae1b2bdbded7119ba3e5d64a9e06a0516aad7"
+                "reference": "54ec4ae7abc5890a17f97828c13f567a6bf0bb1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pixel-Softwares-com/pixel-app/zipball/ee6ae1b2bdbded7119ba3e5d64a9e06a0516aad7",
-                "reference": "ee6ae1b2bdbded7119ba3e5d64a9e06a0516aad7",
+                "url": "https://api.github.com/repos/Pixel-Softwares-com/pixel-app/zipball/54ec4ae7abc5890a17f97828c13f567a6bf0bb1b",
+                "reference": "54ec4ae7abc5890a17f97828c13f567a6bf0bb1b",
                 "shasum": ""
             },
             "require": {
@@ -4837,6 +4840,7 @@
                 "pixel-softwares-com/temporary-files-handlers": "^2.0",
                 "pixel-softwares-com/validator-lib": "^2.0",
                 "sendgrid/sendgrid": "^8.0",
+                "spatie/laravel-activitylog": "^4.10",
                 "spatie/laravel-permission": "^6.0",
                 "spatie/laravel-query-builder": "^6.0",
                 "spatie/laravel-translatable": "^6.0",
@@ -4883,10 +4887,10 @@
             ],
             "description": "PixelApp package",
             "support": {
-                "source": "https://github.com/Pixel-Softwares-com/pixel-app/tree/2.0.15",
+                "source": "https://github.com/Pixel-Softwares-com/pixel-app/tree/2.0.21",
                 "issues": "https://github.com/Pixel-Softwares-com/pixel-app/issues"
             },
-            "time": "2025-12-08T19:15:59+00:00"
+            "time": "2025-12-11T14:03:16+00:00"
         },
         {
             "name": "pixel-softwares-com/pixel-dom-pdf",
@@ -6292,6 +6296,97 @@
                 "source": "https://github.com/sendgrid/sendgrid-php/tree/8.1.2"
             },
             "time": "2024-04-18T11:09:09+00:00"
+        },
+        {
+            "name": "spatie/laravel-activitylog",
+            "version": "4.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-activitylog.git",
+                "reference": "bb879775d487438ed9a99e64f09086b608990c10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/bb879775d487438ed9a99e64f09086b608990c10",
+                "reference": "bb879775d487438ed9a99e64f09086b608990c10",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0",
+                "illuminate/database": "^8.69 || ^9.27 || ^10.0 || ^11.0 || ^12.0",
+                "illuminate/support": "^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.6.3"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "orchestra/testbench": "^6.23 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+                "pestphp/pest": "^1.20 || ^2.0 || ^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Activitylog\\ActivitylogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Spatie\\Activitylog\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A very simple activity logger to monitor the users of your website or application",
+            "homepage": "https://github.com/spatie/activitylog",
+            "keywords": [
+                "activity",
+                "laravel",
+                "log",
+                "spatie",
+                "user"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-activitylog/issues",
+                "source": "https://github.com/spatie/laravel-activitylog/tree/4.10.2"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-06-15T06:59:49+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -9947,16 +10042,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.50.0",
+            "version": "v1.51.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "9177d5de1c8247166b92ea6049c2b069d2a1802f"
+                "reference": "1c74357df034e869250b4365dd445c9f6ba5d068"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/9177d5de1c8247166b92ea6049c2b069d2a1802f",
-                "reference": "9177d5de1c8247166b92ea6049c2b069d2a1802f",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/1c74357df034e869250b4365dd445c9f6ba5d068",
+                "reference": "1c74357df034e869250b4365dd445c9f6ba5d068",
                 "shasum": ""
             },
             "require": {
@@ -10006,7 +10101,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2025-12-03T17:16:36+00:00"
+            "time": "2025-12-09T13:33:49+00:00"
         },
         {
             "name": "mockery/mockery",

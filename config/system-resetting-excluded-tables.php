@@ -14,6 +14,8 @@
         'geographical_areas',
         'currencies',
         'settings',
+        'permissions',
+        'company_account',
     ];
 
     return [
@@ -22,7 +24,6 @@
             'branches',
             'departments',
             'roles',
-            'permissions',
             'role_has_permissions'
         ]),
     ];
