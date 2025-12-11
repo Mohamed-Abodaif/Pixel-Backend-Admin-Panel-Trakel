@@ -25,7 +25,7 @@ Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) {
 
 Route::get("test" , function()
 {
- $response = Http::baseUrl("api.stg.companies-management.com")
+ $response = Http::baseUrl("https://api.stg.companies-management.com")
     ->get("api/test");
 
     dd(["data" => $response->json() ] );
