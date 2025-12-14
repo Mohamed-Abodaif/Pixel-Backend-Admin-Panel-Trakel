@@ -1,13 +1,9 @@
 <?php
 
 use App\Models\CompanyModule\TenantCompany;
-use App\Models\UsersModule\User;
-use App\Services\CompanyModule\StatusChangerServices\CompanyTypeStatusChangers\SignUpCompanyStatusChangerServices\SignUpAccountApprovingService;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use PixelApp\Helpers\PixelGlobalHelpers;
-use PixelApp\Models\SystemConfigurationModels\Branch;
-use PixelApp\Models\SystemConfigurationModels\Department;
 
 PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule'); 
  
@@ -29,7 +25,7 @@ Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) {
 Route::get("test" , function()
 {
 
-    $routeId  = (new PixelAppGetRouteIdentifier("api/test"));
+    $routeId  = (new PixelAppGetRouteIdentifier("api/test2"));
     dd(
         PixelAppsConnectionManager::Singleton()->connectOn(PixelTenantAppCentralDomainClient::getClientName())
     ->requestOnRoute($routeId));

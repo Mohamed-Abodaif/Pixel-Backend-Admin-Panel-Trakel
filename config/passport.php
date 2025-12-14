@@ -6,10 +6,10 @@
   'client_uuids' => false,
   'personal_access_client' => 
   array (
-    'id' => 19,
-    'secret' => '20FYYYMplsXCIchZPS4BzXPX1965iwOmPEMtfTpk',
+    'id' => 1,
+    'secret' => 'vEyydpzWqcdnur9Oemh3lQcjCmkiCVednH2q8yRc',
   ),
- 'storage' => 
+  'storage' => 
   array (
     'database' => 
     array (
@@ -24,19 +24,12 @@
   'revoked_token_grace_period' => '10 days',
   'server-app-client-credentials' => 
   array (
-     'id' => 2,
-    'secret' => 'q2JOSLYjxCriAy4r1thKN6XWZNeDLDoTijjCQr47'
+    'id' => '2',
+    'secret' => 'U7PRAoBFRnob9uarSe14jWiiyjQFFs1UE0yYSxho',
   ),
-
-  //for erp
-  // 'server-app-client-credentials' => 
-  // array (
-  //   'id' => '7',
-  //   'secret' => 'M3ykeAmCkB564yVHxGadfDNvLZ8tqbriVS4oHMw7',
-  // ),
   'machine_client_credentials_client' => 
   array (
-    'id' => 20,
-    'secret' => 'zc8DMywZN66BMMsw5njK7LLwbFq2vwoxZIdITr76',
+    'id' => 2,
+    'secret' => 's1DJtSq0Bq6bo6VAj5STTOP4qRocCoB8Z5yFJQCE',
   ),
 ) ;
