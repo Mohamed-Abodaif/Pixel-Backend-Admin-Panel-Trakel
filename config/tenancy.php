@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use PixelApp\CustomLibs\Tenancy\Bootstrappers\FilesystemTenancyCustomBootstrapper;
+use PixelApp\CustomLibs\Tenancy\Bootstrappers\QueueTenancyCustomBootstrapper;
 use PixelApp\Models\CompanyModule\TenantCompany;
 use Stancl\Tenancy\Database\Models\Domain;
 
@@ -34,7 +35,7 @@ return [
     'bootstrappers' => [
         Stancl\Tenancy\Bootstrappers\DatabaseTenancyBootstrapper::class,
         FilesystemTenancyCustomBootstrapper::class,
-        Stancl\Tenancy\Bootstrappers\QueueTenancyBootstrapper::class,
+        QueueTenancyCustomBootstrapper::class,
         Stancl\Tenancy\Bootstrappers\CacheTenancyBootstrapper::class,
         // Stancl\Tenancy\Bootstrappers\RedisTenancyBootstrapper::class, // Note: phpredis is needed
     ],

@@ -1,17 +1,18 @@
 <?php
 
 use App\Models\CompanyModule\TenantCompany;
+use App\Models\UsersModule\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use PixelApp\Helpers\PixelGlobalHelpers;
-
-PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule'); 
- 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Laravel\Passport\Client;
 use PixelApp\CustomLibs\PixelCycleManagers\PixelAppsConnectionManagement\PixelAppClients\PixelTenantAppCentralDomainClient;
 use PixelApp\CustomLibs\PixelCycleManagers\PixelAppsConnectionManagement\PixelAppRouteIdentifiers\PixelAppGetRouteIdentifier;
 use PixelApp\CustomLibs\PixelCycleManagers\PixelAppsConnectionManagement\PixelAppsConnectionManager;
+
+
+PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule'); 
 
 Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) { 
     $route = $request->route(); 
@@ -22,18 +23,24 @@ Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) {
     ]);
 });
 
-Route::get("test" , function()
+Route::get("test10" , function()
 {
+
+    // dd(Hash::make("vEyydpzWqcdnur9Oemh3lQcjCmkiCVednH2q8yRc"));
+    // dd(password_verify(config("passport.personal_access_client.secret") , Client::first()->secret));
+
+    // dd(password_verify( "123456789" , User::first()->password));
+
 
     $routeId  = (new PixelAppGetRouteIdentifier("api/test2"));
     dd(
         PixelAppsConnectionManager::Singleton()->connectOn(PixelTenantAppCentralDomainClient::getClientName())
     ->requestOnRoute($routeId));
 
- $response = Http::baseUrl("https://api.stg.companies-management.com")
-    ->get("api/test");
+//  $response = Http::baseUrl("https://api.stg.companies-management.com")
+//     ->get("api/test2");
 
-    dd(["data" => $response->json() ] );
+    // dd(["data" => $response->json() ] );
     
     // $response =  Http::baseUrl("api.stg.companies-management.com")
     // ->get("api/test");
