@@ -2,7 +2,7 @@ name: laravel
 
 on:
   push:
-    branches: [ main ]
+    branches: [ staging ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,11 +14,11 @@ jobs:
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: 80.208.229.46
-        username: erp_stg
-        password: NtddJCwtj1EfeyS
+        server: ${{ secrets.FTP_STAGING_SERVER }}
+        username: ${{ secrets.FTP_STAGING_USERNAME }}
+        password: ${{ secrets.FTP_STAGING_PASSWORD }}
         protocol: ftp
-        server-dir: /public_html/backendAdmin/
+        server-dir: backend/
         local-dir: ./
         exclude: |
           .*/**
@@ -28,9 +28,9 @@ jobs:
     - name: ssh actions (update packages)
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: 80.208.229.46
-        username: erp_stg
-        password: NtddJCwtj1EfeyS
+        host: ${{ secrets.FTP_STAGING_SERVER }}
+        username: root
+        password: ${{ secrets.FTP_STAGING_PASSWORD }}
         script: |
           cd public_html/backendAdmin/
           rm -f composer.lock
