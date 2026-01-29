@@ -21,7 +21,7 @@ return [
      */
     'central_domains' => [
         '127.0.0.1',
-        'adminapi.stg.companies-management.com',
+        env('ADMIN_PANEL_ROOT_API'),
         'localhost',
 
     ],
