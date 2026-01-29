@@ -21,7 +21,7 @@ return [
      */
     'central_domains' => [
         '127.0.0.1',
-        env('ADMIN_PANEL_ROOT_API'),
+        env('BACKEND_CENTRAL_DOMAIN'),
         'localhost',
 
     ],
