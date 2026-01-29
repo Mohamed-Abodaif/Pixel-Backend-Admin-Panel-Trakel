@@ -18,7 +18,7 @@ jobs:
         username: ${{ secrets.FTP_STAGING_USERNAME }}
         password: ${{ secrets.FTP_STAGING_PASSWORD }}
         protocol: ftp
-        server-dir: backend/
+        server-dir: backendAdmin/
         local-dir: ./
         exclude: |
           .*/**
