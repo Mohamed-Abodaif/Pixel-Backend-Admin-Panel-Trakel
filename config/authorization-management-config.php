@@ -11,7 +11,7 @@ use PixelApp\Models\SystemConfigurationModels\CountryModule\Country;
 use PixelApp\Models\SystemConfigurationModels\Currency;
 use PixelApp\Models\SystemConfigurationModels\Department;
 use PixelApp\Models\SystemConfigurationModels\RoleModel;
-use PixelApp\Models\UsersModule\PixelUser;
+use App\Models\UsersModule\User;
 use PixelApp\Models\UsersModule\Signature;
 use PixelApp\Models\UsersModule\UserProfile;
 use PixelApp\Policies\AuthenticationPolicies\CompanyModulePolicies\CompanyModulePolicy;
@@ -21,7 +21,7 @@ use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\BranchPol
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\DepartmentPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\CityPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\CurrencyPolicy;
-use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\DropDownListPolicy;
+use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\CountryPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\DropDownListPolicies\MainAndSubAreaPolicy;
 use PixelApp\Policies\SystemConfigurationPolicies\RolesAndPermissionsPolicies\RolesAndPermissionsPolicies;
 use PixelApp\Policies\UserAccountPolicies\SignaturePolicy;
@@ -46,14 +46,15 @@ return [
         Branch::class                     => BranchPolicy::class,
         City::class                       => CityPolicy::class,
         Currency::class                   => CurrencyPolicy::class,
+        Country::class                    => CountryPolicy::class,
        
         /** Authentication Policies */
         PixelCompany::class                => CompanyManagementPolicy::class,
-        PixelUser::class                    => UsersModulePolicy::class,
+        User::class                         => UsersModulePolicy::class,
         UserProfile::class                  => UserProfilePolicy::class,
         Signature::class                    => SignaturePolicy::class
     ],
     "independent_gates" => [
         SuperAdminIndependentGates::class
-    ]
+    ] 
 ];

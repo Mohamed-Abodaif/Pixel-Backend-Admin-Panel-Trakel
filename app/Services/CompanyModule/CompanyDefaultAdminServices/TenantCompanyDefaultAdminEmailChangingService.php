@@ -34,6 +34,10 @@ class TenantCompanyDefaultAdminEmailChangingService  extends BaseEmailChangerSer
         $this->tenant = TenantCompany::findOrFail($companyId);
     }
 
+    /**
+     * @return CompanyDefaultAdmin|null
+     * @throws Exception
+     */
     protected function getTenantCompanyDefaultAdmin() :  ?CompanyDefaultAdmin
     {
         return $this->tenant->defaultAdmin;

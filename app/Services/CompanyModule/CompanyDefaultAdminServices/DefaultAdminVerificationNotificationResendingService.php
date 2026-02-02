@@ -26,6 +26,11 @@ class DefaultAdminVerificationNotificationResendingService extends BaseDefaultAd
         return TenantCompany::findOrFail($companyId);
     }
 
+    /**
+     * @param TenantCompany $company
+     * @return CompanyDefaultAdmin|null
+     * @throws Exception
+     */
     protected function getTenantCompanyDefaultAdmin(TenantCompany $company) : ?CompanyDefaultAdmin
     {
         return $company->defaultAdmin;

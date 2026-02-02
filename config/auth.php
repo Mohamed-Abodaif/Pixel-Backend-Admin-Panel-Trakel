@@ -115,4 +115,17 @@ return [
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Allow Unverified Email Login
+    |--------------------------------------------------------------------------
+    |
+    | When false, login requires the user/company default admin email to be
+    | verified (LoginService and CompanyCheckingStatusService enforce this).
+    | When true, unverified users can log in.
+    |
+    */
+
+    'allow_unverified_email_login' => env('ALLOW_UNVERIFIED_EMAIL_LOGIN', false),
+
 ];

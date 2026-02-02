@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartmentsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -15,14 +15,12 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('branch_id')->nullable()->constrained('branches')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreignId('branch_id')->nullable()->constrained('branches')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
             $table->boolean('status')->default(1);
             $table->boolean('is_default')->default(0);
-            $table->unique(['name', 'branch_id']);
-
+            $table->unique(['name', 'branch_id']); 
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -35,4 +33,4 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::dropIfExists('departments');
     }
-} 
+};

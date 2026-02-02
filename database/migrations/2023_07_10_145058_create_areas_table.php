@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 /**
  * @todo to handle geo_areas later
  */
-class CreateAreasTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -35,4 +35,4 @@ class CreateAreasTable extends Migration
     {
         Schema::dropIfExists('fire_sys_areas');
     }
-}
+};

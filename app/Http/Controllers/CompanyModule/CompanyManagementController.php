@@ -3,27 +3,14 @@
 namespace App\Http\Controllers\CompanyModule;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CompanyModule\DuplicateCompanyRequest;
 use App\Http\Requests\CompanyModule\ReadCompanyRequest;
 use App\Http\Resources\CompanyModule\CompaniesResource;
-use App\Models\CompanyModule\TenantCompany;
-use App\Models\UsersModule\User;
-use App\Services\CompanyModule\CompanyDefaultAdminServices\DefaultAdminVerificationNotificationResendingService;
-use App\Services\CompanyModule\CompanyDefaultAdminServices\TenantCompanyDefaultAdminEmailChangingService;
 use App\Services\CompanyModule\CompanyManagementService;
-use App\Services\CompanyModule\StatusChangerServices\CompanyTypeStatusChangers\CompanyAccountStatusChanger;
-use App\Services\CompanyModule\StatusChangerServices\CompanyTypeStatusChangers\SignUpCompanyStatusChangerServices\SignUpAccountApprovingService;
-use App\Services\CompanyModule\StatusChangerServices\CompanyTypeStatusChangers\SignUpCompanyStatusChangerServices\SignUpAccountRejectingService;
-use Exception;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Request; 
+use Illuminate\Support\Facades\Auth;
 use PixelApp\Http\Resources\AuthenticationResources\CompanyAuthenticationResources\ModelsResources\TenantCompanyResource;
-use PixelApp\Models\CompanyModule\CompanyDefaultAdmin;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
+use PixelApp\Models\CompanyModule\CompanyDefaultAdmin; 
 
 class CompanyManagementController extends Controller
 {
@@ -70,58 +57,56 @@ class CompanyManagementController extends Controller
                             return $this->companyManagementService->show($company);
 
                         },
-            operationName : "Tenant Company Show Operation",
-            loggingContext  : ['companyId' => $company],
-            loggingFailingMsg : "Failed To Retreive a Tenant Company Row !"
-        );
+                        operationName : "Tenant Company Show Operation",
+                        loggingContext  : ['companyId' => $company],
+                        loggingFailingMsg : "Failed To Retreive a Tenant Company Row !"
+                    );
     }
   
     public function approveCompany(Request $request , int $company) : JsonResponse
     {
-         return $this->surroundWithTransaction(
-                        function () use ( $company): JsonResponse
+        return $this->logOnFailureOnly(
+            callback : function() use ($company)
                         {
                             return $this->companyManagementService->approveCompany($company);
-                        },
-                        'Approving a tenant company', 
-                        [
-                            'companyId' => $company,
-                            'user_id' => auth()->id(),
-                            'request' => $request->all(),
+                        },  
+                        operationName : "Tenant Company Approval Operation",
+                        loggingFailingMsg : "Failed to approve tenant company !",
+                        loggingContext : [
+                            'companyId' => $company
                         ]
-                );
+                    );
+        
     }
 
     public function rejectCompany(Request $request , int $company) : JsonResponse
     {
-        return $this->surroundWithTransaction(
-                        function () use ( $company): JsonResponse
+        return $this->logOnFailureOnly(
+            callback : function() use ($company)
                         {
                             return $this->companyManagementService->rejectCompany($company);
                         },
-                        'Rejecting a Tenant', 
-                        [
-                            'companyId' => $company,
-                            'user_id' => auth()->id(),
-                            'request' => $request->all(),
+                        operationName : "Tenant Company Rejection Operation",
+                        loggingFailingMsg : "Failed to reject tenant company !",
+                        loggingContext : [
+                            'companyId' => $company
                         ]
-               );
+                    );
     }
 
    public function changeCompanyListStatus(Request $request , int $company): JsonResponse
    {
-     return $this->surroundWithTransaction(
-                function () use ( $company): JsonResponse
-                {
-                    return $this->companyManagementService->changeCompanyListStatus($company);
-                },
-                'Updating Tenant Company List Status', 
-                [
-                    'companyId' => $company,
-                    'user_id' => auth()->id(),
-                    'request' => $request->all(),
-                ]
-            );
+    return $this->logOnFailureOnly(
+        callback : function() use ($company)
+                    {
+                        return $this->companyManagementService->changeCompanyListStatus($company);
+                    },
+                        operationName : "Tenant Company List Status Update Operation",
+                        loggingFailingMsg : "Failed to update tenant company list status !",
+                        loggingContext : [
+                            'companyId' => $company
+                        ]
+                );
    }
 
    public function updateCompanyEmail(Request $request, int $company)
@@ -133,7 +118,7 @@ class CompanyManagementController extends Controller
                     },
                     'Updating Company Email',
                     [
-                        'user_id' => auth()->id(),
+                        'user_id' => Auth::id(),
                         'request' => $request->all(),
                     ]
                 );
@@ -150,7 +135,7 @@ class CompanyManagementController extends Controller
                         },
                         'Resend Verification Token to Default Admin Email',
                         [
-                            'user_id' => auth()->id(),
+                            'user_id' => Auth::id(),
                             'request' => request()->all(),
                         ]
                 );
@@ -166,7 +151,7 @@ class CompanyManagementController extends Controller
                         },
                         "ReVerify Tenant Default Admin's Email", 
                         [
-                            'user_id' => auth()->id(),
+                            'user_id' => Auth::id(),
                             'request' => request()->all(),
                         ]
 

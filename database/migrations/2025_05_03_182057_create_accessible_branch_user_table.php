@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccessibleBranchUserTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateAccessibleBranchUserTable extends Migration
     {
         Schema::create('accessible_branch_user', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('branch_id')->constrained('branches')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreignId('branch_id')->constrained('branches')->cascadeOnDelete()->cascadeOnUpdate();
             $table->primary(['user_id', 'branch_id']);
         });
     }
@@ -29,4 +29,4 @@ class CreateAccessibleBranchUserTable extends Migration
     {
         Schema::dropIfExists('accessible_branch_user');
     }
-}
+};

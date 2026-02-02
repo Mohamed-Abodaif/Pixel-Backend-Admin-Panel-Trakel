@@ -1,9 +1,10 @@
 <?php
 
-use PixelApp\Models\UsersModule\PixelUser as User;
+use App\Models\UsersModule\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PixelApp\Database\Migrations\Helpers\OptionalFieldsMigrationHelper;
 
 return new class extends Migration
 {
@@ -28,14 +29,15 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('verification_token')->nullable();
             $table->dateTime('accepted_at')->nullable();
-            $table->foreignId("department_id")->nullable()->constrained("departments")->cascadeOnUpdate()->restrictOnDelete();
-            $table->enum('dep_role',User::DEP_TYPES)->nullable();
+            
+            // Optional relations - branch, department, and department role
+            OptionalFieldsMigrationHelper::addOptionalFields($table, User::class);
+            
             $table->string('employee_id')->nullable()->comment("EMP-auto_increment_id");
             $table->enum('status', User::USER_STATUS_VALUES)->default(User::USER_DEFAULT_INIT_STATUS_VALUE);
             $table->boolean('default_user')->default(0);
             $table->foreignId("role_id")->nullable()->constrained("roles")->cascadeOnUpdate()->restrictOnDelete();
             $table->foreignId("previous_role_id")->nullable()->constrained("roles")->cascadeOnUpdate()->restrictOnDelete();
-            $table->foreignId('branch_id')->nullable()->constrained('branches')->restrictOnDelete()->cascadeOnUpdate();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

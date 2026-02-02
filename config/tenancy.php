@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 use PixelApp\CustomLibs\Tenancy\Bootstrappers\FilesystemTenancyCustomBootstrapper;
 use PixelApp\CustomLibs\Tenancy\Bootstrappers\QueueTenancyCustomBootstrapper;
-use PixelApp\Models\CompanyModule\TenantCompany;
+use App\Models\CompanyModule\TenantCompany;
 use Stancl\Tenancy\Database\Models\Domain;
+use Database\Seeders\TenantDatabaseConfiguringSeeder\TenantDatabaseConfiguringSeeder;
+ 
+
 
 
 return [
@@ -20,10 +23,8 @@ return [
      * Only relevant if you're using the domain or subdomain identification middleware.
      */
     'central_domains' => [
-        '127.0.0.1',
-        env('BACKEND_CENTRAL_DOMAIN'),
-        'localhost',
-
+        env('BACKEND_CENTRAL_DOMAIN' , '127.0.0.1'),
+        env('TENANT_SUBDOMAIN_IDENTIFICATION_HOST' , '127.0.0.1') 
     ],
 
     /**
@@ -32,13 +33,13 @@ return [
      *
      * To configure their behavior, see the config keys below.
      */
-    'bootstrappers' => [
+    'bootstrappers' => array_filter([
         Stancl\Tenancy\Bootstrappers\DatabaseTenancyBootstrapper::class,
         FilesystemTenancyCustomBootstrapper::class,
         QueueTenancyCustomBootstrapper::class,
-        Stancl\Tenancy\Bootstrappers\CacheTenancyBootstrapper::class,
+        env('CACHE_STORE') == 'redis' ? Stancl\Tenancy\Bootstrappers\CacheTenancyBootstrapper::class : null,
         // Stancl\Tenancy\Bootstrappers\RedisTenancyBootstrapper::class, // Note: phpredis is needed
-    ],
+    ]),
 
     /**
      * Database tenancy config. Used by DatabaseTenancyBootstrapper.
@@ -192,7 +193,7 @@ return [
      */
     'migration_parameters' => [
         '--force' => true, // This needs to be true to run migrations in production.
-        '--path' => config('database-paths',database_path('migrations/tenant/PixelStandartMigrations')),
+        '--path' => config('migration-sub-folder-paths',database_path('migrations/tenant')),
         '--realpath' => true,
     ],
 
@@ -200,7 +201,7 @@ return [
      * Parameters used by the tenants:seed command.
      */
     'seeder_parameters' => [
-        '--class' => 'TenantDatabaseConfiguringSeeder\TenantDatabaseConfiguringSeeder', // root seeder class
-        '--force' => true,
+        '--class' => TenantDatabaseConfiguringSeeder::class, // root seeder class
+            '--force' => true,
     ],
 ];

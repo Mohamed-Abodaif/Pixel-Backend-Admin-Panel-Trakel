@@ -22,11 +22,10 @@ return new class extends Migration
             $table->tinyInteger('decimal_digits')->nullable();// converting type from string to tiny integer
             $table->boolean('rounding')->nullable()->default(0); // converting type from string to boolean 
             $table->string('name_plural')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->boolean('is_main')->default(0);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
-            $table->softDeletes();
         });
     }
 

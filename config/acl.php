@@ -14,7 +14,7 @@ $permissions = [
                 ];
  
 $superAdminPermissions = array_merge($permissions, [
-    // ========================================
+                    // ========================================
                     // SYSTEM CONFIGURATION (SC) MODULE
                     // ========================================
                     "read_sc-dropdown-lists",
@@ -34,48 +34,51 @@ $superAdminPermissions = array_merge($permissions, [
                     "delete_sc-dropdown-lists-departments",
 
                     // Dropdown Lists - Branch Teams
-                    "read_sc-dropdown-lists-branch-teams",
-                    "read_sc-dropdown-lists-branch-teams-index",
-                    "add-team_sc-dropdown-lists-branch-teams",
-                    "edit_sc-dropdown-lists-branch-teams",
-                    "delete_sc-dropdown-lists-branch-teams",
-                    "manage-team-members_sc-dropdown-lists-branch-teams",
+                    "read_sc-dropdown-lists-branches-teams",
+                    "manage-team-members_sc-dropdown-lists-branches-teams",
                     
                     // Dropdown Lists - Cities
                     "read_sc-dropdown-lists-cities",
                     "create_sc-dropdown-lists-cities",
                     "edit_sc-dropdown-lists-cities",
                     "delete_sc-dropdown-lists-cities",
-                     
+                    
+                    // Dropdown Lists - Countries
+                    "read_sc-dropdown-lists-countries",
+                    "edit_sc-dropdown-lists-countries",
                     
                     // Dropdown Lists - Currencies
                     "read_sc-dropdown-lists-currencies",
                     "import_sc-dropdown-lists-currencies",
-                    "edit_sc-dropdown-lists-currency",
+                    "edit_sc-dropdown-lists-currencies",
                     
                     // Dropdown Lists - Geographical Areas
                     "read_sc-dropdown-lists-geographical-areas",
-                    "create_sc-dropdown-lists-geographical-area",
-                    "edit_sc-dropdown-lists-geographical-area",
-                    "delete_sc-dropdown-lists-geographical-area",
+                    "create_sc-dropdown-lists-geographical-areas",
+                    "edit_sc-dropdown-lists-geographical-areas",
+                    "delete_sc-dropdown-lists-geographical-areas",
                     
                     // Dropdown Lists - Main Areas
                     "read_sc-dropdown-lists-main-areas",
-                    "create_sc-dropdown-lists-main-area",
-                    "edit_sc-dropdown-lists-main-area",
-                    "delete_sc-dropdown-lists-main-area",
+                    "create_sc-dropdown-lists-main-areas",
+                    "edit_sc-dropdown-lists-main-areas",
+                    "delete_sc-dropdown-lists-main-areas",
                     
                     // Dropdown Lists - Sub Areas
                     "read_sc-dropdown-lists-sub-areas",
-                    "create_sc-dropdown-lists-sub-area",
-                    "edit_sc-dropdown-lists-sub-area",
-                    "delete_sc-dropdown-lists-sub-area",
+                    "create_sc-dropdown-lists-sub-areas",
+                    "edit_sc-dropdown-lists-sub-areas",
+                    "delete_sc-dropdown-lists-sub-areas",
                     
                     // Dropdown Lists - Departments (Additional)
                     "department-rep_sc-dropdown-lists-departments",
                     
+                    
                     // Roles and Permissions
                     "read_sc-roles-and-permissions",
+                    "create_sc-roles-and-permissions",
+                    "edit_sc-roles-and-permissions",
+                    "delete_sc-roles-and-permissions",
                     // ========================================
                     // USER MANAGEMENT MODULE (UMM)
                     // ========================================

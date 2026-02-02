@@ -78,7 +78,7 @@ return [
              * for later : think about using CustomFileHandler::getFileStoragePath , it fails in runtime becasue it uses a facade before registering it
              */
             'root' => storage_path('app/public'),
-            'url' =>  rtrim(env('BACKEND_URL') , "/") .  '/storage' ,
+            'url' =>  rtrim(env('BACKEND_APP_URL') ?? '', "/") . '/public/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,

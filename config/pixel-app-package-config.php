@@ -21,7 +21,7 @@ use App\Models\UsersModule\User;
               'cities' => 'PixelApp\\Routes\\RouteRegistrarTypes\\SystemConfigurationRouteRegistrars\\DropdownListRouteRegistrars\\CitiesRouteRegistrar',
               'countries' => 'PixelApp\\Routes\\RouteRegistrarTypes\\SystemConfigurationRouteRegistrars\\DropdownListRouteRegistrars\\CountriesRouteRegistrar',
               'currencies' => 'PixelApp\\Routes\\RouteRegistrarTypes\\SystemConfigurationRouteRegistrars\\DropdownListRouteRegistrars\\CurrenciesRouteRegistrar',
-              'departmens' => 'PixelApp\\Routes\\RouteRegistrarTypes\\SystemConfigurationRouteRegistrars\\DropdownListRouteRegistrars\\DepartmentRouteRegistrar',
+              'departments' => 'PixelApp\\Routes\\RouteRegistrarTypes\\SystemConfigurationRouteRegistrars\\DropdownListRouteRegistrars\\DepartmentRouteRegistrar',
             ],
             // 'packages' => 'PixelApp\\Routes\\RouteRegistrarTypes\\SystemConfigurationRouteRegistrars\\PackagesRouteRegistrar',
             'roles-permissions' => 'PixelApp\\Routes\\RouteRegistrarTypes\\SystemConfigurationRouteRegistrars\\RolesAndPermissionsRouteRegistrar',
@@ -37,6 +37,46 @@ use App\Models\UsersModule\User;
             'pixel-tenancy-service-provider-class' => 'PixelApp\\ServiceProviders\\RelatedPackagesServiceProviders\\TenancyServiceProvider',
 
             "tenant-company-model-class" => TenantCompany::class,
-            "user-model-class" => User::class
+            "user-model-class" => User::class,
+            
+    /**
+     * Optional Relations Configuration
+     * Maps functionality keys to their config paths and table names
+     * Used by OptionalRelationRuntimeCache for runtime checking
+     */
+    "optional-relations" => [
+      'branches' => [
+          'config_path' => 'pixel-app-package-route-registrars.dropdown-list.branches',
+          'table' => 'branches',
+      ],
+      'departments' => [
+          'config_path' => 'pixel-app-package-route-registrars.dropdown-list.departments',
+          'table' => 'departments',
+      ],
+      'cities' => [
+          'config_path' => 'pixel-app-package-route-registrars.dropdown-list.cities',
+          'table' => 'cities',
+      ],
+      'countries' => [
+          'config_path' => 'pixel-app-package-route-registrars.dropdown-list.countries',
+          'table' => 'countries',
+      ],
+      'geographical-areas' => [
+          'config_path' => 'pixel-app-package-route-registrars.dropdown-list.geographical-areas',
+          'table' => 'geographical_areas',
+      ],
+      'main-and-sub-areas' => [
+          'config_path' => 'pixel-app-package-route-registrars.dropdown-list.main-and-sub-areas',
+          'table' => 'areas',
+      ],
+      'currencies' => [
+          'config_path' => 'pixel-app-package-route-registrars.dropdown-list.currencies',
+          'table' => 'currencies',
+      ],
+      'user-signatures' => [
+          'config_path' => 'pixel-app-package-route-registrars.user-account.user-signatures',
+          'table' => 'user_signatures',
+      ],
+  ]
             
 ];
