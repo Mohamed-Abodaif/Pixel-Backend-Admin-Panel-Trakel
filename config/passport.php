@@ -1,6 +1,12 @@
 <?php
 
-use PixelApp\CustomLibs\PixelCycleManagers\PixelPassportManager\PixelPassportManager;
+use Laravel\Passport\Passport;
+
+/*
+| Env key names below must match PixelPassportManager::ENV_KEY_* constants
+| (single source of truth for key names is PixelPassportManager; config uses
+| literals to avoid loading that class when config is read e.g. during dump-autoload).
+*/
 
 return [
 
@@ -44,8 +50,8 @@ return [
     */
 
     'personal_access_client' => [
-        'id' => env(PixelPassportManager::ENV_KEY_PASSPORT_CENTRAL_PERSONAL_ACCESS_CLIENT_ID),
-        'secret' => env(PixelPassportManager::ENV_KEY_PASSPORT_CENTRAL_PERSONAL_ACCESS_CLIENT_SECRET),
+        'id' => env('PASSPORT_CENTRAL_PERSONAL_ACCESS_CLIENT_ID'),
+        'secret' => env('PASSPORT_CENTRAL_PERSONAL_ACCESS_CLIENT_SECRET'),
     ],
 
     /*
@@ -92,11 +98,11 @@ return [
     */
     'revoked_token_grace_period' => env('PASSPORT_REVOKED_GRACE_PERIOD', '10 days'),
     'server-app-client-credentials' => [
-        'id' => env(PixelPassportManager::ENV_KEY_SERVER_APP_CLIENT_CREDENTIALS_ID),
-        'secret' => env(PixelPassportManager::ENV_KEY_SERVER_APP_CLIENT_CREDENTIALS_SECRET),
+        'id' => env('SERVER_APP_CLIENT_CREDENTIALS_ID'),
+        'secret' => env('SERVER_APP_CLIENT_CREDENTIALS_SECRET'),
     ],
     'machine_client_credentials_client' => [
-        'id' => env(PixelPassportManager::ENV_KEY_MACHINE_CLIENT_CREDENTIALS_CLIENT_ID),
-        'secret' => env(PixelPassportManager::ENV_KEY_MACHINE_CLIENT_CREDENTIALS_CLIENT_SECRET),
+        'id' => env('MACHINE_CLIENT_CREDENTIALS_CLIENT_ID'),
+        'secret' => env('MACHINE_CLIENT_CREDENTIALS_CLIENT_SECRET'),
     ],
 ];
