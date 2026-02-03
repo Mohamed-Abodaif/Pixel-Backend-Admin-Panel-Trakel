@@ -2,6 +2,7 @@
 
 use App\Models\CompanyModule\TenantCompany;
 use App\Models\UsersModule\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use PixelApp\Helpers\PixelGlobalHelpers; 
@@ -20,6 +21,15 @@ Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) {
         'middlewares' => $route->gatherMiddleware(),
     ]);
 });
+
+Route::get('/', function (): JsonResponse
+{
+
+    return response()->json([
+        'status' => 200,
+        'message' => 'Welcome to the API',
+    ]);
+})->middleware('reqLimit');
 
 Route::get("test10" , function()
 {

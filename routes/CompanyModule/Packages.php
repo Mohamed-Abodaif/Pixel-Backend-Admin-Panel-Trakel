@@ -9,5 +9,5 @@ Route::prefix('packages')
         Route::get('/', 'index');
         Route::get('/{package}', 'show');
         Route::post('/', 'store');
-        Route::put('/{package}', 'update');
+        Route::post('/{package}', 'update');
     });
