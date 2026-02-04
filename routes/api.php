@@ -12,16 +12,7 @@ use PixelApp\CustomLibs\PixelCycleManagers\PixelAppsConnectionManagement\PixelAp
 
 
 PixelGlobalHelpers::requirePhpFiles(__DIR__ . '/CompanyModule'); 
-
-Route::get('/debug-middlewares', function (Illuminate\Http\Request $request) { 
-    $route = $request->route(); 
-
-    return response()->json([
-        'uri' => $route->uri(),
-        'middlewares' => $route->gatherMiddleware(),
-    ]);
-});
-
+ 
 Route::get('/', function (): JsonResponse
 {
 
