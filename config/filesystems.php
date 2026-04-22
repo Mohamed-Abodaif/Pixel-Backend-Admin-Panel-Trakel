@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DISK', env('FILESYSTEM_DRIVER', 'local')),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
              */
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' =>  rtrim(env('BACKEND_APP_URL') , "/") . '/public/storage',
+            'url' => rtrim(env('BACKEND_APP_URL') ?? '', '/') . '/storage',
             'visibility' => 'public',
 //            'driver' => 'local',
 //            'root' => storage_path('app/public'),
@@ -82,7 +82,7 @@ return [
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
-        ], 
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
